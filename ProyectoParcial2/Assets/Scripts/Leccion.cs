@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 
-public struct Leccion
+public struct Lección
 {
     public int ID;
-    public List<string> lessons;
+    public string lessons;
     public List<string> options;
     public int correctAnswer;
-    public int i;
-//    public int order;
 }
 
-[CreateAssetMenu(fileName = "New Lesson", menuName = "ScriptableObjects/NewLesson", order = i)]
+[CreateAssetMenu(fileName = "New Subject", menuName = "ScriptableObjects/New_Lesson", order = 1)]
 
-public interface Subject : ScriptableObject
+public class Subject : ScriptableObject
 {
-    List<Leccion> LeccionList;
+    [Header("GameObject Configuration")]
+    public int lesson;
+
+    public List<Lección> leccionList;
 }
